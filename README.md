@@ -24,6 +24,31 @@ It does not check tenant data, provision services, or send messages.
 Use `/choose-iq` for a single need or `/plan-weekly-review` for a recurring
 review. In VS Code, select the Navigator before running any of these prompts.
 
+### First-time walkthrough in the Copilot app
+
+Opening the repository folder does not activate the agent. In a Copilot app
+that supports repository custom agents and session creation:
+
+1. **Understand its role.** The Navigator helps you choose Work IQ, Foundry
+   IQ, Fabric IQ, Web IQ, or no IQ for an app or business need. It provides
+   architecture advice, not tenant operations.
+2. **Open an agent session.** Open this repository in the Copilot app. In a
+   regular Copilot chat for the repository, ask: "Create a session using the
+   Microsoft IQ Navigator custom agent and open it." Continue in the new
+   session with **Microsoft IQ Navigator** selected.
+3. **Describe your goal.** Explain who needs help, what decision they need
+   to make, and where the relevant information lives. For example: "Our
+   operations managers need approved delivery KPIs and the follow-up actions
+   agreed in Teams. Which IQ capabilities fit?"
+4. **Review the recommendation.** Check which source should govern each
+   requirement, why an IQ capability fits, and which access or freshness
+   assumptions need verification.
+5. **Narrow the starting point.** Ask: "What is the smallest useful pilot,
+   and how would we measure success?"
+6. **Verify before implementing.** Confirm source ownership, permissions,
+   freshness, and availability with your organization. The Navigator does
+   not inspect tenant data, deploy services, or send messages.
+
 ### Assess an app or project
 
 Run `/assess-project` in VS Code, or ask the Navigator to assess your project
