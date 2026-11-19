@@ -14,82 +14,107 @@ It does not check tenant data, provision services, or send messages.
 ## Get started
 
 The Navigator is a set of agent instructions, not a hosted service. Choose one
-of the following ways to run it.
+host below. Opening the repository folder alone does not activate the agent.
 
-### VS Code or GitHub Copilot app
+If you don't have a local checkout, clone the repo first:
 
-1. If you don't have a local checkout, clone the repo:
+```sh
+git clone https://github.com/fbabaei/microsoft-iq-navigator.git
+```
 
-   ```sh
-   git clone https://github.com/fbabaei/microsoft-iq-navigator.git
-   ```
+### Copilot app
 
-2. Open the **`microsoft-iq-navigator` folder** in VS Code with GitHub Copilot
-   enabled, or in a local GitHub Copilot app session that supports repository
-   custom agents. Opening a different repository will not load this repo's
-   workspace agent.
-3. In Copilot Chat, choose **Microsoft IQ Navigator** from the **Agent**
-   dropdown. In VS Code, run `/assess-project` for a project, `/choose-iq`
-   for a single need, or `/plan-weekly-review` for a recurring review.
+Use a local Copilot app session that supports repository custom agents and
+session creation.
 
-If the agent is missing in VS Code, select the **Copilot** session target,
-then run **Chat: Open Customizations** from the Command Palette and check the
-**Agents** tab. Verify that `.github/agents/microsoft-iq-navigator.agent.md`
-is in the folder you opened.
+1. Open the **`microsoft-iq-navigator` repository** in the app.
+2. In a regular Copilot chat for this repository, send:
+
+   > Create a session using the Microsoft IQ Navigator custom agent and open it.
+
+3. Continue in the new session. Check the session's agent selection shows
+   **Microsoft IQ Navigator**, not just a chat title with that name.
+4. Paste the [example request](#try-a-project-assessment) below.
+
+The session-opening request goes to regular Copilot, not the Navigator.
+The Navigator itself has no tools and cannot create sessions.
+
+### VS Code
+
+1. Open the **`microsoft-iq-navigator` folder** in VS Code with GitHub Copilot
+   enabled.
+2. Open Copilot Chat and select **Microsoft IQ Navigator** from the agent
+   dropdown.
+3. Paste the [example request](#try-a-project-assessment), or run
+   `/assess-project` and supply your brief. Use `/choose-iq` for a single
+   need or `/plan-weekly-review` for a recurring review. Select the Navigator
+   before running these prompts.
 
 ### GitHub Copilot CLI
 
-With [Copilot CLI installed and signed in](https://docs.github.com/copilot/how-tos/copilot-cli),
-open a terminal in the cloned `microsoft-iq-navigator` folder, run `copilot`,
-then enter `/agent` and select **Microsoft IQ Navigator**. Type
-`Assess this project:` followed by your brief. See
-[GitHub's custom agent guide](https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents)
+1. Install and sign in to [Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli).
+2. Open a terminal in the cloned **`microsoft-iq-navigator` folder** and run
+   `copilot`.
+3. Enter `/agent` and select **Microsoft IQ Navigator**.
+4. Paste the [example request](#try-a-project-assessment).
+
+See [GitHub's custom agent guide](https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents)
 for details.
 
-### First-time walkthrough in the Copilot app
+### Confirm the agent is selected
 
-Opening the repository folder does not activate the agent. In a Copilot app
-that supports repository custom agents and session creation:
+Check the host's agent selection for **Microsoft IQ Navigator** before sending
+your brief. A session title or an answer that sounds like the Navigator does
+not prove that its custom agent profile is selected.
 
-1. **Understand its role.** The Navigator helps you choose Work IQ, Foundry
-   IQ, Fabric IQ, Web IQ, or no IQ for an app or business need. It provides
-   architecture advice, not tenant operations.
-2. **Open an agent session.** Open this repository in the Copilot app. In a
-   regular Copilot chat for the repository, ask: "Create a session using the
-   Microsoft IQ Navigator custom agent and open it." Continue in the new
-   session with **Microsoft IQ Navigator** selected.
-3. **Describe your goal.** Explain who needs help, what decision they need
-   to make, and where the relevant information lives. For example: "Our
-   operations managers need approved delivery KPIs and the follow-up actions
-   agreed in Teams. Which IQ capabilities fit?"
-4. **Review the recommendation.** Check which source should govern each
-   requirement, why an IQ capability fits, and which access or freshness
-   assumptions need verification.
-5. **Narrow the starting point.** Ask: "What is the smallest useful pilot,
-   and how would we measure success?"
-6. **Verify before implementing.** Confirm source ownership, permissions,
-   freshness, and availability with your organization. The Navigator does
-   not inspect tenant data, deploy services, or send messages.
+| Problem | What to check |
+| --- | --- |
+| Agent is missing in the Copilot app | Confirm the session belongs to this repository and the app supports repository custom agents. Retry the session-opening request in a regular Copilot chat, not in the tool-free Navigator. If selection cannot be confirmed, do not assume activation succeeded. |
+| Agent is missing in VS Code | Select the **Copilot** session target, then run **Chat: Open Customizations** from the Command Palette and check the **Agents** tab. |
+| Agent is missing in the CLI | Start `copilot` inside this repository, then use `/agent` to select it. |
+| Agent is missing in any host | Verify `.github/agents/microsoft-iq-navigator.agent.md` exists in the checkout the host opened. Opening another repository does not load this repository's workspace agent. |
+| Agent asks for context instead of reading a path | Paste a sanitized brief or relevant excerpts. The GitHub Copilot profile has no tools and cannot open files, browse documentation live, or inspect tenant data. |
 
-### Assess an app or project
+### Try a project assessment
 
-Run `/assess-project` in VS Code or start with `Assess this project:` in Chat
-on any host. Paste a sanitized brief or attach relevant notes and excerpts
-if your client supplies their content. Include who will use the app, what
-decisions it must support, which sources are governed, and any access or
-freshness requirements. A repository path or URL alone is not enough: the
-GitHub Copilot profile has no tools and does not open files or check docs live.
+Paste this request in the selected Navigator session:
 
-For example: "Our operations app needs the approved delivery KPI, team
-follow-up owners, and a fixed alert when a package is late. The KPI is in our
-approved semantic model; team decisions are recorded in Teams. Only the KPI
-is needed for the pilot."
+```text
+Assess this project:
+Our operations managers need an app that explains delivery performance.
+Requirements:
+- Show the approved delivery KPI from our governed semantic model.
+- Identify follow-up owners from decisions recorded in Teams.
+- Send a fixed overdue alert using a due date already in the app database.
+Only the KPI is needed for the pilot.
+Tenant availability, permissions, and source freshness are not yet verified.
+Recommend the smallest useful starting point and how to measure success.
+```
 
-The Navigator maps each requirement to its source of truth. In this example,
-it would recommend Fabric IQ for the governed KPI, defer Work IQ for team
-follow-ups, and recommend a deterministic rule rather than IQ for the fixed
-alert. It separates architectural fit from tenant checks and proposes a small
-pilot with an observable success check.
+An illustrative response follows. This is an example, not a recorded agent
+run or confirmation that any capability is available in your tenant.
+
+| Requirement | Authoritative source | Recommendation | Why | What to verify |
+| --- | --- | --- | --- | --- |
+| Approved delivery KPI | Governed semantic model | Fabric IQ, conditional on availability and access | The approved metric should govern the reported number. | Metric owner, definition, reporting period, freshness, permissions, and tenant support. |
+| Follow-up owners | Decisions recorded in Teams | Work IQ, deferred beyond the pilot | Collaboration history provides the evidence for commitments. | Approved source, decision owner, access, freshness, and tenant support. |
+| Fixed overdue alert | Due date in the app database | No IQ needed | A deterministic rule can evaluate the existing date. | Alert owner, due-date semantics, time zone, boundary cases, and notification permissions. |
+
+**Smallest pilot:** Start with the KPI requirement alone. Have the authorized
+owner compare the pilot output with the approved metric for one agreed reporting
+period; success means the values match under the same definition and filters.
+Defer team follow-ups and the alert. The Navigator recommends this check; it
+does not run it or send alerts.
+
+**Official sources:** [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview)
+and [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/).
+These links describe product fit, not verified tenant readiness.
+
+For your own brief, include the users, decisions, authoritative sources, pilot
+scope, and access or freshness constraints. Paste sanitized notes or attach
+excerpts only if your host supplies their content; a repository path or URL
+alone is not enough. Review the recommendation with the source owners before
+implementing it. The Navigator does not provision services or send messages.
 
 ## Scout and Microsoft 365 Copilot
 
