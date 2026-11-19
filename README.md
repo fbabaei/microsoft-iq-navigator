@@ -116,6 +116,41 @@ excerpts only if your host supplies their content; a repository path or URL
 alone is not enough. Review the recommendation with the source owners before
 implementing it. The Navigator does not provision services or send messages.
 
+### Assess an architecture document, BRD, or PRD
+
+The Navigator's project assessment mode can review an architecture document,
+business requirements document (BRD), or product requirements document (PRD)
+for Microsoft IQ fit.
+
+1. Select **Microsoft IQ Navigator** using your host's quickstart above.
+2. Attach a sanitized document only if the host makes its contents available
+   to the agent. Otherwise, paste the relevant sections, keeping their headings
+   or requirement IDs so the recommendations can reference them. A file path
+   or URL alone is insufficient: the Navigator has no file-reading tools.
+3. Send this prompt, replacing "attached document" with "pasted sections" when
+   providing excerpts:
+
+   ```text
+   Assess the attached document for Microsoft IQ fit.
+   Map each material requirement to its authoritative source and recommend
+   Work IQ, Foundry IQ, Fabric IQ, Web IQ, No IQ needed, or Undetermined.
+   Reference the document sections or requirement IDs.
+   Identify missing information and tenant checks.
+   Propose the smallest useful pilot with measurable success criteria.
+   Do not assume integrations or access that the document does not establish.
+   ```
+
+Expect a requirement-by-requirement decision table, explicit uncertainties,
+and a pilot using at most two IQ capabilities, with other work deferred.
+If the document content is unavailable or the goal is unclear, the Navigator
+should ask for the relevant content or clarification rather than inventing
+requirements. Recommendations based on excerpts cover only the supplied
+content, not the unseen remainder of the document.
+
+Review the result with the source owners. This is architecture advice, not
+tenant verification or implementation; the Navigator does not connect to
+sources, provision services, or make changes.
+
 ## Scout and Microsoft 365 Copilot
 
 Use the Markdown body (everything after the closing `---`) of the
