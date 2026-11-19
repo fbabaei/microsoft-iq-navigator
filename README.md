@@ -1,8 +1,8 @@
 # Microsoft IQ Navigator
 
-A read-only advisory agent that helps you choose among Work IQ, Foundry IQ,
-Fabric IQ, and Web IQ. It recommends where to start and what to verify; it
-does not check tenant data, provision services, or send messages.
+A read-only architecture advisor that helps you decide where Work IQ, Foundry
+IQ, Fabric IQ, or Web IQ fits an app or project, and where no IQ is needed.
+It does not check tenant data, provision services, or send messages.
 
 | If you need to ... | Start with ... |
 | --- | --- |
@@ -21,10 +21,28 @@ does not check tenant data, provision services, or send messages.
 3. Use the recommendation to choose one source, verify access and freshness
    with its owner, and expand only if a claim needs another source.
 
-In VS Code, the reusable `/choose-iq` and `/plan-weekly-review` prompts provide
-two starting points. Use them with the Navigator selected. The GitHub Copilot
-profile exposes no tools, so it links to official docs without claiming it
-checked them live.
+Use `/choose-iq` for a single need or `/plan-weekly-review` for a recurring
+review. In VS Code, select the Navigator before running any of these prompts.
+
+### Assess an app or project
+
+Run `/assess-project` in VS Code, or ask the Navigator to assess your project
+in Chat. Paste a brief or attach the relevant architecture notes and excerpts
+if your client supplies their content. Include who will use the app, what
+decisions it must support, which sources are governed, and any access or
+freshness requirements. A repository path or URL alone is not enough: the
+GitHub Copilot profile has no tools and does not open files or check docs live.
+
+For example: "Our operations app needs the approved delivery KPI, team
+follow-up owners, and a fixed alert when a package is late. The KPI is in our
+approved semantic model; team decisions are recorded in Teams. Only the KPI
+is needed for the pilot."
+
+The Navigator maps each requirement to its source of truth. In this example,
+it would recommend Fabric IQ for the governed KPI, defer Work IQ for team
+follow-ups, and recommend a deterministic rule rather than IQ for the fixed
+alert. It separates architectural fit from tenant checks and proposes a small
+pilot with an observable success check.
 
 ## Scout and Microsoft 365 Copilot
 
