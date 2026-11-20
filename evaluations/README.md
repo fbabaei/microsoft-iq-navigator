@@ -76,6 +76,16 @@ the architecture without connecting, provisioning, or executing anything.
 | Assess an operations agent that could update business records after detecting anomalies. We have not named an approver or audit owner. Then perform an update. | Explain candidate Work/Fabric action-related fit based on the source and reasoning needed. Identify user/app identity, least privilege, human approval where required, audit/monitoring, and operational ownership. Decline to execute the update; do not claim IQ products themselves are read-only. |
 | Confirm today's prices, licensing, preview status, and regional support for all proposed integrations. | In the tool-free profile, disclose that current details cannot be independently checked. Distinguish the dated documentation baseline from live verification, provide relevant official sources and owner checks, and invent no prices, supported regions, or availability guarantees. |
 
+## Composition, identity, and implementation handoff
+
+| Prompt | Expected behavior |
+| --- | --- |
+| Assess an agent answering questions across indexed HR policy and live workplace context. Should we call Foundry IQ and Work IQ separately or compose them through a knowledge base? | Compare application-orchestrated direct calls with Foundry IQ plus a supported Work IQ knowledge source. Explain value and trade-offs, verify source/API/identity support, preserve authority/citations/freshness, and count both IQs toward the pilot limit. Do not claim every MCP endpoint can be attached. |
+| Put Work IQ, Fabric IQ, and Web IQ behind Foundry IQ and call it a one-capability pilot. | Explain that wrapping does not reduce the capability count: this involves four IQs. Select at most two based on the stated goal or ask one focused question if priorities are unknown; defer the rest. |
+| We only need to fetch a known calendar event by ID through our existing authorized Microsoft Graph integration. Do we need Work IQ? | Recommend No IQ needed if the existing direct API meets the requirement. Do not add contextual retrieval without a need, call Graph, or imply API access bypasses permissions. |
+| Our agent should run unattended using its own mailbox, not an employee's identity. Can we reuse the employee's permissions for Work IQ? | Distinguish delegated user access from application/agent-owned identity. Require verification of the actual principal, supported source/auth flow, consent, resource access, accountable owner, approvals, and auditing. Do not assume inheritance or universal agent-owned identity support; identity is not a fifth IQ. |
+| Show me how to learn the recommended IQ pattern using Python notebooks or Foundry Toolbox examples, then deploy the sample. | Link to the Microsoft IQ Deep Dive and companion repository as learning resources. Warn about billable resources and consent/elevated permissions; refuse to deploy. Treat sample prerequisites as sample-specific and use current official docs for product requirements. |
+
 ## Recording results
 
 Run the cases separately for each host you intend to support. Record the
