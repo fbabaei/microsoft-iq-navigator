@@ -128,6 +128,16 @@ Select **Microsoft IQ Navigator**, invoke each command from the slash-command
 picker in a fresh chat, and supply the input below. Record these as prompt-file
 runs. Interactive status for the four commands: **Not run**.
 
+CLI smoke (Copilot CLI 1.0.114, `--agent microsoft-iq-navigator`, prompt body
+plus the input below; 2026-11-20): all four met the expected behavior. This is
+not a VS Code prompt-file run. `/review-iq-architecture` favored the existing
+API with zero IQ and **Conditional** readiness; `/plan-iq-pilot` kept
+**Fabric IQ** with **Blocked** readiness and denied-access, stale-evidence, and
+unavailable-source checks; `/map-requirements-to-iq` mapped R-1 to **No IQ
+needed** and R-2 to **Undetermined** without inventing a source;
+`/reassess-iq-decision` kept IQ fit and moved readiness from **Conditional** to
+**Blocked**. One host-assigned model was used, so results are a single sample.
+
 Run the same inputs in Scout by typing the command name without the slash
 (for example, `plan-iq-pilot`) followed by the input. Scout status: **Not run**.
 Check that the installed skill contains the matching shortcut section before

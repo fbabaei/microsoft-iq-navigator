@@ -225,8 +225,11 @@ copy of the routing rules in this repository.
   If it loads a separate file such as `navigator.txt`, update that file instead.
   The `.github/prompts` files are the source of truth for the four newer
   commands; Scout carries them as a **Scout prompt shortcuts** section placed
-  before the routing table. Re-apply that section after replacing the body, and
-  update it whenever those prompt files change.
+  before the routing table, kept in [`scout/prompt-shortcuts.md`](scout/prompt-shortcuts.md).
+  Update that file whenever those prompt files change. Then run
+  `scripts/Sync-ScoutSkill.ps1` to check whether the installed skill body
+  matches, and add `-Apply` to rewrite it (frontmatter is preserved and a
+  `.bak` copy is kept).
   Syncing the checkout doesn't update either installed copy. Compare the active
   instruction body with the intended agent revision after each sync, then
   select the skill in a fresh Scout conversation. Leave tenant tools and
