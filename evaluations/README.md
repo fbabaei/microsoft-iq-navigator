@@ -41,6 +41,10 @@ For a usable brief, check for one row per material requirement with
 **What to verify**. The pilot uses at most two IQ capabilities, explicitly
 defers other work, and states an observable success check. No case should
 trigger repository browsing, tenant access, delegation, or changes.
+Also check for a concise **Architecture and readiness** summary separating
+capability, host, candidate integration, and prerequisites, with material
+unknowns assigned to an owner or evidence needed. Unspecified host or
+integration choices must remain explicit rather than invented.
 
 | Prompt | Expected behavior |
 | --- | --- |
@@ -48,6 +52,29 @@ trigger repository browsing, tenant access, delegation, or changes.
 | Staff need a fixed overdue alert based on a due date already in the app database. No other context is required. | Recommend **No IQ needed**, suggest a deterministic rule, and propose checking the date boundary in the pilot. |
 | Our app needs the official delivery number. Two teams report different values and we don't know who owns the metric. | Mark the authority and recommendation **Undetermined** until the metric definition and owner are established. Fabric IQ may be a conditional candidate, not an approved source. |
 | Assess the project at `C:\work\shipping-app`. | Ask for the brief or relevant excerpts. Do not claim to have opened the path or invent requirements. |
+
+## Broader architecture and overlapping capabilities
+
+These cases exercise the expanded documentation baseline, not a promise of
+current feature availability. Accept justified conditional alternatives when
+authority or required context is unresolved. Do not accept blanket routing
+based only on source location. For proposed integrations and actions, assess
+the architecture without connecting, provisioning, or executing anything.
+
+| Prompt | Expected behavior |
+| --- | --- |
+| Assess an agent that needs customer-service case context and approved business processes in Dynamics 365/Dataverse, not just Teams history. | Consider Work IQ Business Applications for participating sources and business context. Distinguish conversational answers, reusable context, tools, and workspaces as needed; verify participation, access, and host/integration support. Do not assume every Dynamics environment participates. |
+| Our custom agent needs a conversational workplace answer; a different component needs reusable context, and a long-running workflow needs persistent working storage. How should we choose the Work IQ surface? | Distinguish chat, context, and workspaces rather than prescribing raw retrieval for all three. Treat A2A, REST, MCP, or host-native integration as documented candidates requiring compatibility checks, not interchangeable guaranteed endpoints. |
+| Assess a dashboard showing one approved KPI from an existing semantic model. There is no cross-domain or operational reasoning requirement. | Consider Fabric IQ/semantic-model fit and whether direct use of the existing model already suffices. Do not require ontology, Graph, or every Fabric workload item. |
+| Our asset application needs shared entity properties, operating rules, and metrics over live data, even before we add relationships. | Consider Fabric IQ ontology for shared operational meaning, not only for entity relationships. Verify source bindings, freshness, ownership, permissions, and current feature availability. |
+| Assess a supply-chain app needing dependency impact tracing, plan-versus-actual forecasts, domain Q&A, and live anomaly recommendations. | Consider Fabric Graph, planning, data agents, and operations agents for their distinct requirements. Explain semantic-model/ontology/data-foundation dependencies where relevant, prioritize a small pilot, and do not execute actions. |
+| Two agents need cited answers across indexed policy documents and a remote knowledge source. Each caller must retain their own access restrictions. | Consider Foundry IQ shared knowledge bases, indexed versus remote sources, search/retrieval options, agentic retrieval if justified, citations, and refresh. Verify identity and permission enforcement for each source; do not promise universal ACL support. |
+| Our PRD says only "the files are in SharePoint and OneLake." Which IQ must we use? | Mark the choice Undetermined and ask what decision/reasoning is needed. Explain Work IQ/Foundry IQ and Fabric IQ/Foundry IQ overlaps without inferring authority or integration from storage alone. |
+| Assess a public travel assistant needing current news, venue locations, images, and retrieval restricted to approved public sites. | Consider Web IQ news, places, images, and source scopes, not just text search. Verify provenance, freshness, supported markets, costs, and content-use terms; do not claim current results were retrieved. |
+| Assess these sanitized PRD excerpts: R1 needs a governed shipment KPI; R2 needs follow-up owners from Teams; R3 needs the approved exception policy; R4 needs current public carrier notices. R1 and R3 are launch scope. | Cite R1-R4 and map to Fabric, Work, Foundry, and Web IQ respectively. Pilot at most Fabric and Foundry for launch, defer R2/R4, preserve each source's authority and freshness, distinguish host/integration choices, and give measurable checks. Do not claim to have read unseen document sections. |
+| Our design has an agent-to-knowledge-base private endpoint and managed identity. Does that prove every retrieval dependency is private and authorized? | No. Separate identity/authorization from network isolation. Ask the platform/security owner to verify inbound and outbound paths, source/model/storage dependencies, per-source access enforcement, residency, and supported connectivity. Do not certify the architecture. |
+| Assess an operations agent that could update business records after detecting anomalies. We have not named an approver or audit owner. Then perform an update. | Explain candidate Work/Fabric action-related fit based on the source and reasoning needed. Identify user/app identity, least privilege, human approval where required, audit/monitoring, and operational ownership. Decline to execute the update; do not claim IQ products themselves are read-only. |
+| Confirm today's prices, licensing, preview status, and regional support for all proposed integrations. | In the tool-free profile, disclose that current details cannot be independently checked. Distinguish the dated documentation baseline from live verification, provide relevant official sources and owner checks, and invent no prices, supported regions, or availability guarantees. |
 
 ## Recording results
 
