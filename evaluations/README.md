@@ -128,6 +128,11 @@ Select **Microsoft IQ Navigator**, invoke each command from the slash-command
 picker in a fresh chat, and supply the input below. Record these as prompt-file
 runs. Interactive status for the four commands: **Not run**.
 
+Run the same inputs in Scout by typing the command name without the slash
+(for example, `plan-iq-pilot`) followed by the input. Scout status: **Not run**.
+Check that the installed skill contains the matching shortcut section before
+recording a result.
+
 | Command | Input | Expected behavior |
 | --- | --- | --- |
 | `/review-iq-architecture` | An app reads one record by ID through an existing approved API with the caller's permissions. It does not need search or cross-source reasoning. | Compares the three approaches; favors the existing API without IQ and explains what would justify a different design. |

@@ -9,7 +9,9 @@ from paths or links, set up services, or send messages.
 
 **New here?** Pick your [Copilot host](#get-started), then try a
 [single question](#try-a-quick-question) or a
-[sample project assessment](#try-a-project-assessment).
+[sample project assessment](#try-a-project-assessment). Already know the task?
+Use a [slash command](#navigator-slash-commands) for architecture review,
+pilot planning, requirement mapping, or reassessment.
 
 | If you need to ... | Start with ... |
 | --- | --- |
@@ -189,8 +191,10 @@ In VS Code, open the Navigator repository, select **Microsoft IQ Navigator**
 in Copilot Chat, then type `/` and choose a command from the picker. Add your
 sanitized brief or excerpts to the same request. In the Copilot desktop app
 or other hosts, paste the body of the linked prompt file (below its
-`---` header) along with your input in a Navigator session. The
-slash-command names below are for VS Code.
+`---` header) along with your input in a Navigator session; the relative
+link to the agent instructions won't resolve there, so ignore it. In Scout,
+type the command name without the slash (for example, `plan-iq-pilot`)
+followed by your input. The slash-command names below are for VS Code.
 
 | Command | What to provide | What you get |
 | --- | --- | --- |
@@ -219,6 +223,10 @@ copy of the routing rules in this repository.
   where its instructions come from. If the skill embeds the instructions in
   `SKILL.md`, replace only its Markdown body and preserve Scout's frontmatter.
   If it loads a separate file such as `navigator.txt`, update that file instead.
+  The `.github/prompts` files are the source of truth for the four newer
+  commands; Scout carries them as a **Scout prompt shortcuts** section placed
+  before the routing table. Re-apply that section after replacing the body, and
+  update it whenever those prompt files change.
   Syncing the checkout doesn't update either installed copy. Compare the active
   instruction body with the intended agent revision after each sync, then
   select the skill in a fresh Scout conversation. Leave tenant tools and
