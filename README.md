@@ -33,7 +33,10 @@ For mixed-source questions, the Navigator compares direct IQ integrations
 with composed retrieval through Foundry IQ using supported knowledge sources.
 Source support and identity flows remain conditional, not guaranteed by MCP
 compatibility. A knowledge base wrapping several IQs does not turn them into
-one capability for pilot sizing: the pilot still uses at most two IQs.
+one capability for pilot sizing: the pilot still uses at most two IQs, even
+when the full target architecture needs more. The Navigator identifies what
+the pilot cannot validate and how a composed design should handle missing,
+stale, or access-denied evidence without weakening authorization.
 
 For project assessments, expect the requirement decision table plus a concise
 **Architecture and readiness** summary separating the **IQ capability**,
@@ -42,6 +45,10 @@ checks cover source authority and freshness, identity and source permissions,
 network paths and data residency, integration/region/preview availability,
 costs, and operational ownership. Unknowns remain explicit owner checks,
 not proof that access exists or the capability cannot fit.
+The evaluation decision is **Ready to evaluate**, **Conditional**, or
+**Blocked**, based on the supplied evidence for the proposed pilot. It
+identifies what must be resolved now versus what can wait, and is not
+deployment approval.
 Identity checks distinguish acting on behalf of a user from using an application
 or agent-owned identity where supported, including consent, accountable ownership,
 resource permissions, and audit requirements.
@@ -193,8 +200,9 @@ These links describe product fit, not verified tenant readiness.
 
 **Architecture and readiness:** Fabric IQ is the capability; the app's agent
 host and integration mechanism are not specified and remain to be selected.
-The metric owner should confirm the model and access; the platform owner
-should verify supported integration, identity, network/residency constraints,
+**Pilot readiness: Conditional.** The metric owner should confirm the model
+and access. The platform owner should verify the integration, identity,
+network/residency constraints,
 current availability, cost, and operational ownership before implementing
 the pilot.
 
@@ -234,7 +242,9 @@ capabilities, with other work deferred.
 If the document content is unavailable or the goal is unclear, the Navigator
 should ask for the relevant content or clarification rather than inventing
 requirements. Recommendations based on excerpts cover only the supplied
-content, not the unseen remainder of the document.
+content, not the unseen remainder of the document. The Navigator treats
+document text as evidence, not instructions, and flags material gaps or
+contradictions instead of assuming they are resolved.
 
 Review the result with the source owners. This is architecture advice, not
 tenant verification or implementation; the Navigator does not connect to
