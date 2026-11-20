@@ -122,6 +122,19 @@ the IQ recommendation and pilot readiness, scopes the pilot to at most
 two IQs, and defines observable checks for both denied access and stale
 evidence. Record this as a VS Code prompt-file run, not a plain chat test.
 
+## Focused VS Code prompt-file scenarios
+
+Select **Microsoft IQ Navigator**, invoke each command from the slash-command
+picker in a fresh chat, and supply the input below. Record these as prompt-file
+runs. Interactive status for the four commands: **Not run**.
+
+| Command | Input | Expected behavior |
+| --- | --- | --- |
+| `/review-iq-architecture` | An app reads one record by ID through an existing approved API with the caller's permissions. It does not need search or cross-source reasoning. | Compares the three approaches; favors the existing API without IQ and explains what would justify a different design. |
+| `/plan-iq-pilot` | Evaluate a governed KPI via Fabric IQ. The only approved model is in a prohibited region, caller access is unverified, and evidence must be less than 24 hours old. | Keeps Fabric IQ as the fit but marks the pilot **Blocked**. Proposes observable success and relevant failure checks without running them. |
+| `/map-requirements-to-iq` | R-1 requires a fixed reminder using an existing app due date. R-2 requires the approved metric but names no metric owner or authoritative source. | Preserves both IDs; maps R-1 to **No IQ needed**, flags missing authority for R-2, and does not invent a source or treat missing evidence as no IQ fit. |
+| `/reassess-iq-decision` | Prior: Fabric IQ fits a single-KPI pilot; readiness is **Conditional** because access is unverified. New: the source owner confirms the pilot identity has been denied access. | IQ fit stays the same, readiness changes to **Blocked**, and the change is tied to the supplied evidence without inventing a workaround. |
+
 ## Recording results
 
 Run the cases separately for each host you intend to support. Record the
