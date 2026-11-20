@@ -1,15 +1,63 @@
 # Microsoft IQ Navigator
 
-A read-only architecture advisor that helps you decide where Work IQ, Foundry
-IQ, Fabric IQ, or Web IQ fits an app or project, and where no IQ is needed.
-It does not check tenant data, provision services, or send messages.
+A read-only Microsoft IQ fit and architecture advisor that helps you decide
+where Work IQ, Foundry IQ, Fabric IQ, or Web IQ fits an app or project, and
+where no IQ is needed. It does not check tenant data, provision services, or
+send messages. It is not an exhaustive product manual or implementation agent.
 
 | If you need to ... | Start with ... |
 | --- | --- |
-| Understand a decision or who owns an action | Work IQ |
-| Find the authoritative policy or runbook | Foundry IQ |
-| Confirm the source for an official KPI | Fabric IQ |
-| Research a recent public change | Web IQ |
+| Understand workplace decisions, commitments, or participating business processes | Work IQ |
+| Retrieve cited knowledge across authoritative documents and other curated sources | Foundry IQ |
+| Understand governed KPIs, business state, planning, or operational relationships and rules | Fabric IQ |
+| Ground an answer in fresh web, news, images, video, or places context | Web IQ |
+
+These are starting points, not mutually exclusive storage-based rules.
+SharePoint or OneLake alone does not determine the IQ choice. The Navigator
+compares the required reasoning, authoritative source, and available evidence,
+then proposes the smallest useful combination.
+
+## Assessment scope and readiness
+
+The Navigator considers Work IQ workplace and participating business-app
+context; Foundry IQ indexed/remote knowledge retrieval and shared knowledge
+bases; Fabric IQ semantic models, ontology, Graph, planning, and data/operations
+agents; and Web IQ retrieval options, source scopes, and provenance.
+It recommends workload items only when the requirement justifies them.
+An existing app, API, database query, or deterministic rule may be enough.
+
+For project assessments, expect the requirement decision table plus a concise
+**Architecture and readiness** summary separating the **IQ capability**,
+**agent host**, **candidate integration**, and **prerequisites**. Material
+checks cover source authority and freshness, identity and source permissions,
+network paths and data residency, integration/region/preview availability,
+costs, and operational ownership. Unknowns remain explicit owner checks,
+not proof that access exists or the capability cannot fit.
+
+The Navigator can recommend architectures involving governed actions without
+performing those actions itself. Its instructions, including the readiness
+checklist, live in the [agent definition](.github/agents/microsoft-iq-navigator.agent.md).
+
+### Documentation baseline
+
+Architecture guidance was reviewed on **2026-11-19** against these official
+documentation entry points:
+
+- [Microsoft IQ documentation hub](https://learn.microsoft.com/en-us/microsoft-iq/)
+- [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/)
+  and [Business Applications in Work IQ](https://learn.microsoft.com/en-us/power-platform/business-applications-work-iq/)
+- [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
+- [Fabric IQ overview](https://learn.microsoft.com/en-us/fabric/iq/overview)
+- [Web IQ overview](https://learn.microsoft.com/en-us/web-iq/overview)
+  and [documentation index](https://learn.microsoft.com/en-us/web-iq/)
+
+This date records a bounded documentation review, not executed acceptance
+tests or tenant validation. The tool-free Copilot profile cannot refresh
+these sources independently. Verify current pricing, licensing, feature/source
+support, and preview status before implementation. When maintaining guidance,
+review the affected official sources, update the baseline date in the agent
+definition and here, and rerun the affected acceptance scenarios. Do not
+advance the date solely because a file was edited.
 
 ## Get started
 
@@ -110,6 +158,13 @@ does not run it or send alerts.
 and [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/).
 These links describe product fit, not verified tenant readiness.
 
+**Architecture and readiness:** Fabric IQ is the capability; the app's agent
+host and integration mechanism are not specified and remain to be selected.
+The metric owner should confirm the model and access; the platform owner
+should verify supported integration, identity, network/residency constraints,
+current availability, cost, and operational ownership before implementing
+the pilot.
+
 For your own brief, include the users, decisions, authoritative sources, pilot
 scope, and access or freshness constraints. Paste sanitized notes or attach
 excerpts only if your host supplies their content; a repository path or URL
@@ -141,7 +196,8 @@ for Microsoft IQ fit.
    ```
 
 Expect a requirement-by-requirement decision table, explicit uncertainties,
-and a pilot using at most two IQ capabilities, with other work deferred.
+an architecture/readiness summary, and a pilot using at most two IQ
+capabilities, with other work deferred.
 If the document content is unavailable or the goal is unclear, the Navigator
 should ask for the relevant content or clarification rather than inventing
 requirements. Recommendations based on excerpts cover only the supplied
