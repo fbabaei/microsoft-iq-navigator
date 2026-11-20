@@ -25,6 +25,15 @@ bases; Fabric IQ semantic models, ontology, Graph, planning, and data/operations
 agents; and Web IQ retrieval options, source scopes, and provenance.
 It recommends workload items only when the requirement justifies them.
 An existing app, API, database query, or deterministic rule may be enough.
+For example, a known Microsoft 365 record lookup may need only Microsoft Graph,
+while reasoning across workplace context may justify Work IQ. Both still
+require appropriate authorization.
+
+For mixed-source questions, the Navigator compares direct IQ integrations
+with composed retrieval through Foundry IQ using supported knowledge sources.
+Source support and identity flows remain conditional, not guaranteed by MCP
+compatibility. A knowledge base wrapping several IQs does not turn them into
+one capability for pilot sizing: the pilot still uses at most two IQs.
 
 For project assessments, expect the requirement decision table plus a concise
 **Architecture and readiness** summary separating the **IQ capability**,
@@ -33,6 +42,9 @@ checks cover source authority and freshness, identity and source permissions,
 network paths and data residency, integration/region/preview availability,
 costs, and operational ownership. Unknowns remain explicit owner checks,
 not proof that access exists or the capability cannot fit.
+Identity checks distinguish acting on behalf of a user from using an application
+or agent-owned identity where supported, including consent, accountable ownership,
+resource permissions, and audit requirements.
 
 The Navigator can recommend architectures involving governed actions without
 performing those actions itself. Its instructions, including the readiness
@@ -51,6 +63,12 @@ documentation entry points:
 - [Web IQ overview](https://learn.microsoft.com/en-us/web-iq/overview)
   and [documentation index](https://learn.microsoft.com/en-us/web-iq/)
 
+Supplemental composition and implementation-learning guidance was reviewed
+the same day against the [Microsoft IQ Deep Dive](https://aka.ms/miq-deepdive)
+and its [Microsoft sample repository](https://github.com/microsoft/iqdeepdive).
+These learning materials supplement, rather than override, current product
+documentation.
+
 This date records a bounded documentation review, not executed acceptance
 tests or tenant validation. The tool-free Copilot profile cannot refresh
 these sources independently. Verify current pricing, licensing, feature/source
@@ -58,6 +76,21 @@ support, and preview status before implementation. When maintaining guidance,
 review the affected official sources, update the baseline date in the agent
 definition and here, and rerun the affected acceptance scenarios. Do not
 advance the date solely because a file was edited.
+
+### From recommendation to implementation learning
+
+Use the [Microsoft IQ Deep Dive article](https://aka.ms/miq-deepdive) for session
+recordings and write-ups, and the [companion samples](https://github.com/microsoft/iqdeepdive)
+for Python notebooks, direct MCP/API integrations, composed Foundry IQ retrieval,
+and Foundry Toolbox agent patterns.
+
+Ask the Navigator to identify a relevant learning pattern and its prerequisites,
+not to run the sample. The samples include deployment infrastructure that can
+create billable resources and require elevated permissions or admin consent.
+Sample-specific models, licenses, preview access, regions, roles, and capacity
+requirements are not universal IQ requirements; verify current documentation
+and your organization's approvals before implementation. This repository's
+Navigator remains a tool-free advisor.
 
 ## Get started
 
