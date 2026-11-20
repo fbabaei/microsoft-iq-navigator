@@ -59,10 +59,8 @@ The Navigator itself has no tools and cannot create sessions.
    enabled.
 2. Open Copilot Chat and select **Microsoft IQ Navigator** from the agent
    dropdown.
-3. Paste the [example request](#try-a-project-assessment), or run
-   `/assess-project` and supply your brief. Use `/choose-iq` for a single
-   need or `/plan-weekly-review` for a recurring review. Select the Navigator
-   before running these prompts.
+3. Paste the [example request](#try-a-project-assessment), or choose a
+   [Navigator slash command](#navigator-slash-commands) and supply its input.
 
 ### GitHub Copilot CLI
 
@@ -184,6 +182,25 @@ contradictions instead of assuming they are resolved.
 Review the result with the source owners. This is architecture advice, not
 tenant verification or implementation; the Navigator does not connect to
 sources, provision services, or make changes.
+
+### Navigator slash commands
+
+In VS Code, open the Navigator repository, select **Microsoft IQ Navigator**
+in Copilot Chat, then type `/` and choose a command from the picker. Add your
+sanitized brief or excerpts to the same request. In the Copilot desktop app
+or other hosts, paste the body of the linked prompt file (below its
+`---` header) along with your input in a Navigator session. The
+slash-command names below are for VS Code.
+
+| Command | What to provide | What you get |
+| --- | --- | --- |
+| [`/choose-iq`](.github/prompts/choose-iq.prompt.md) | One task or decision. | A recommendation, rationale, and smallest next step. |
+| [`/assess-project`](.github/prompts/assess-project.prompt.md) | A project goal, requirements, and constraints. | A decision table, pilot proposal, and readiness summary. |
+| [`/plan-weekly-review`](.github/prompts/plan-weekly-review.prompt.md) | Who attends the review and which decisions, KPIs, or external changes matter. | A recurring-review pilot with sources and observable checks. |
+| [`/review-iq-architecture`](.github/prompts/review-iq-architecture.prompt.md) | A design excerpt with candidate sources, access rules, and freshness needs. | A comparison of direct retrieval, a shared knowledge layer, and a no-IQ option, plus what would change the recommendation. |
+| [`/plan-iq-pilot`](.github/prompts/plan-iq-pilot.prompt.md) | A recommendation and the outcome you want to prove. | A pilot using at most two IQ capabilities, with measurable pass criteria, relevant failure checks, and a separate readiness decision. |
+| [`/map-requirements-to-iq`](.github/prompts/map-requirements-to-iq.prompt.md) | Sanitized BRD or PRD excerpts with requirement IDs or section headings. | A traceable requirement-to-source decision table and open questions. |
+| [`/reassess-iq-decision`](.github/prompts/reassess-iq-decision.prompt.md) | The prior assessment and the new evidence (for example, confirmation that an approved KPI source is accessible). | What changed or stayed the same in IQ fit, pilot readiness, and next steps, with supporting evidence. |
 
 ## Scout and Microsoft 365 Copilot
 
